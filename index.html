@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表情包投放脚本</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>表情包投放脚本</h1>
+      <p class="subtitle">
+        本地批量转换图片尺寸与体积：表情 240×240、横幅 750×400、封面 240×240 透明 PNG、图标 50×50 透明 PNG
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel" aria-labelledby="input-heading">
+        <h2 id="input-heading">输入</h2>
+        <div
+          id="dropzone"
+          class="dropzone"
+          tabindex="0"
+          role="button"
+          aria-label="拖放图片到此处或点击选择文件"
+        >
+          <p>拖放多张图片到此处</p>
+          <p class="hint">或点击选择（可多选）</p>
+        </div>
+        <input id="file-input" type="file" multiple accept="image/*,.png,.gif,.webp,.jpg,.jpeg,.bmp,.avif" hidden />
+
+        <fieldset class="fieldset">
+          <legend>素材类型（对应平台图1～图4 规格）</legend>
+          <label><input type="radio" name="asset-mode" value="emoji" checked /> 表情（240×240，≤500KB）</label>
+          <label><input type="radio" name="asset-mode" value="banner" /> 详情页横幅（750×400，≤500KB）</label>
+          <label><input type="radio" name="asset-mode" value="cover" /> 表情封面（240×240 透明 PNG，≤500KB）</label>
+          <label><input type="radio" name="asset-mode" value="icon" /> 聊天页图标（50×50 透明 PNG，≤100KB）</label>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend>处理顺序</legend>
+          <label><input type="radio" name="order" value="selection" checked /> 按选择顺序</label>
+          <label><input type="radio" name="order" value="filename" /> 按文件名排序</label>
+        </fieldset>
+
+        <div class="row">
+          <button type="button" id="btn-clear" class="btn secondary">清空</button>
+          <button type="button" id="btn-run" class="btn primary">转换并预览</button>
+          <button type="button" id="btn-zip" class="btn primary" disabled>下载全部 ZIP</button>
+        </div>
+
+        <div id="file-list" class="file-list" aria-live="polite"></div>
+        <p id="warn-unknown" class="warn" hidden></p>
+      </section>
+
+      <section class="panel" aria-labelledby="output-heading">
+        <h2 id="output-heading">预览与单张下载</h2>
+        <p id="copy-status" class="status" role="status"></p>
+        <div id="preview-grid" class="preview-grid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <strong>表情（图1）：</strong>240×240；静态常用 PNG/JPG；动态须为 GIF（本页对 GIF 仅解码<strong>首帧</strong>，循环与帧率请在本地工具处理）。
+        一套建议 8～24 张且不要静态与动态混在同一批。
+      </p>
+      <p>
+        <strong>横幅（图2）：</strong>750×400，JPG/PNG，≤500KB；画布底色为浅灰以避开纯白底，版式与「无字」等需自行设计。
+      </p>
+      <p>
+        <strong>封面（图3）：</strong>240×240 PNG，透明底；若压到体积仍超标会降级为 JPEG（不再透明）并提示。
+      </p>
+      <p>
+        <strong>图标（图4）：</strong>50×50 PNG，≤100KB，透明底；圆角与去白边等由源图与设计保证。
+      </p>
+      <p><strong>运行：</strong><code>npx --yes serve .</code> 后用 <code>http://localhost:…</code> 打开。ZIP 打包会从 CDN 加载 JSZip（需联网）。</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

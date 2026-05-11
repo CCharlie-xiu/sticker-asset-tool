@@ -10,7 +10,7 @@
     <header class="app-header">
       <h1>表情包投放脚本</h1>
       <p class="subtitle">
-        本地批量转换图片尺寸与体积：表情 240×240、横幅 750×400、封面 240×240 透明 PNG、图标 50×50 透明 PNG
+        本地批量转换：表情 / 横幅 / 封面 / 图标 / 赞赏引导图 / 赞赏致谢图（尺寸与体积按平台文档）
       </p>
     </header>
 
@@ -29,12 +29,14 @@
         </div>
         <input id="file-input" type="file" multiple accept="image/*,.png,.gif,.webp,.jpg,.jpeg,.bmp,.avif" hidden />
 
-        <fieldset class="fieldset">
-          <legend>素材类型（对应平台图1～图4 规格）</legend>
+        <fieldset class="fieldset fieldset-modes">
+          <legend>素材类型</legend>
           <label><input type="radio" name="asset-mode" value="emoji" checked /> 表情（240×240，≤500KB）</label>
           <label><input type="radio" name="asset-mode" value="banner" /> 详情页横幅（750×400，≤500KB）</label>
           <label><input type="radio" name="asset-mode" value="cover" /> 表情封面（240×240 透明 PNG，≤500KB）</label>
           <label><input type="radio" name="asset-mode" value="icon" /> 聊天页图标（50×50 透明 PNG，≤100KB）</label>
+          <label><input type="radio" name="asset-mode" value="rewardGuide" /> 赞赏引导图（750×560，≤500KB）</label>
+          <label><input type="radio" name="asset-mode" value="rewardThanks" /> 赞赏致谢图（750×750，≤500KB）</label>
         </fieldset>
 
         <fieldset class="fieldset">
@@ -73,6 +75,12 @@
       </p>
       <p>
         <strong>图标（图4）：</strong>50×50 PNG，≤100KB，透明底；圆角与去白边等由源图与设计保证。
+      </p>
+      <p>
+        <strong>赞赏引导图：</strong>750×560，JPG/PNG/GIF，≤500KB；用于选赞赏金额页，风格须与表情一致、无无关内容。
+      </p>
+      <p>
+        <strong>赞赏致谢图：</strong>750×750，JPG/PNG/GIF，≤500KB；用于致谢页；风格须与表情一致、无无关内容。
       </p>
       <p><strong>运行：</strong><code>npx --yes serve .</code> 后用 <code>http://localhost:…</code> 打开。ZIP 打包会从 CDN 加载 JSZip（需联网）。</p>
     </footer>

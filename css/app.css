@@ -132,6 +132,12 @@ body {
   margin-bottom: 0.25rem;
 }
 
+.fieldset-modes label {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 0.35rem;
+}
+
 .checkbox {
   display: flex;
   align-items: flex-start;

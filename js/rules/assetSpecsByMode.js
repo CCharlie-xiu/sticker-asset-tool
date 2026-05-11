@@ -3,7 +3,7 @@
  * 扩展新模式：在此增加键与字段，并在 processSingleAsset / UI 中接入。
  */
 
-/** @typedef {'emoji'|'banner'|'cover'|'icon'} AssetMode */
+/** @typedef {'emoji'|'banner'|'cover'|'icon'|'rewardGuide'|'rewardThanks'} AssetMode */
 
 /**
  * @typedef {Object} AssetSpec
@@ -61,6 +61,28 @@ export const ASSET_SPECS = {
     fit: "contain",
     label: "图标 50×50 PNG，≤100KB，透明底",
   },
+  /** 赞赏引导图：选赞赏金额页展示，750×560，JPG/PNG/GIF，≤500KB；风格须与表情一致、无无关内容（设计侧保证） */
+  rewardGuide: {
+    width: 750,
+    height: 560,
+    maxBytes: 500 * 1024,
+    outputKind: "png-or-jpeg",
+    transparentCanvas: false,
+    opaqueFill: "#f5f5f5",
+    fit: "cover",
+    label: "赞赏引导图 750×560，≤500KB",
+  },
+  /** 赞赏致谢图：致谢页展示，750×750，JPG/PNG/GIF，≤500KB */
+  rewardThanks: {
+    width: 750,
+    height: 750,
+    maxBytes: 500 * 1024,
+    outputKind: "png-or-jpeg",
+    transparentCanvas: false,
+    opaqueFill: "#f5f5f5",
+    fit: "cover",
+    label: "赞赏致谢图 750×750，≤500KB",
+  },
 };
 
 /** 表情一套建议 8～24 张（仅提示，不拦截） */
@@ -69,6 +91,14 @@ export const EMOJI_SET_MAX = 24;
 
 /** @param {string} v */
 export function parseAssetMode(v) {
-  if (v === "banner" || v === "cover" || v === "icon") return v;
+  if (
+    v === "banner" ||
+    v === "cover" ||
+    v === "icon" ||
+    v === "rewardGuide" ||
+    v === "rewardThanks"
+  ) {
+    return v;
+  }
   return "emoji";
 }

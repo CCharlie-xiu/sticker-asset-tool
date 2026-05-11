@@ -33,7 +33,7 @@
 /**
  * @typedef {Object} PipelineOptions
  * @property {MergeOptions} merge
- * @property {AssetMode} [assetMode] 表情 | 横幅 | 封面 | 图标
+ * @property {AssetMode} [assetMode] 表情 | 横幅 | 封面 | 图标 | 赞赏引导 | 赞赏致谢
  */
 
 export {};

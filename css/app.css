@@ -132,10 +132,98 @@ body {
   margin-bottom: 0.25rem;
 }
 
-.fieldset-modes label {
-  display: block;
+/* 素材类型：卡片式单选 */
+.fieldset-asset-modes {
+  padding: 0.65rem 0.7rem 0.75rem;
+}
+
+.fieldset-asset-modes legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.fieldset-asset-modes > .asset-mode-grid {
+  margin-top: 0.45rem;
+}
+
+.asset-mode-grid {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 520px) {
+  .asset-mode-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldset.fieldset-asset-modes .asset-mode-card {
+  display: flex;
   margin-right: 0;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
+}
+
+.asset-mode-card {
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--panel) 88%, var(--bg));
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.asset-mode-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--accent) 5%, var(--panel));
+}
+
+.asset-mode-card:focus-within {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.asset-mode-card:has(input:checked) {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--panel));
+  box-shadow: inset 3px 0 0 0 var(--accent);
+}
+
+.asset-mode-card input[type="radio"] {
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0.12rem 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.asset-mode-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.asset-mode-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.asset-mode-spec {
+  font-size: 0.76rem;
+  color: var(--muted);
 }
 
 .checkbox {

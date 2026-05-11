@@ -29,14 +29,52 @@
         </div>
         <input id="file-input" type="file" multiple accept="image/*,.png,.gif,.webp,.jpg,.jpeg,.bmp,.avif" hidden />
 
-        <fieldset class="fieldset fieldset-modes">
+        <fieldset class="fieldset fieldset-asset-modes">
           <legend>素材类型</legend>
-          <label><input type="radio" name="asset-mode" value="emoji" checked /> 表情（240×240，≤500KB）</label>
-          <label><input type="radio" name="asset-mode" value="banner" /> 详情页横幅（750×400，≤500KB）</label>
-          <label><input type="radio" name="asset-mode" value="cover" /> 表情封面（240×240 透明 PNG，≤500KB）</label>
-          <label><input type="radio" name="asset-mode" value="icon" /> 聊天页图标（50×50 透明 PNG，≤100KB）</label>
-          <label><input type="radio" name="asset-mode" value="rewardGuide" /> 赞赏引导图（750×560，≤500KB）</label>
-          <label><input type="radio" name="asset-mode" value="rewardThanks" /> 赞赏致谢图（750×750，≤500KB）</label>
+          <div class="asset-mode-grid">
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="emoji" checked />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">表情</span>
+                <span class="asset-mode-spec">240×240，≤500KB</span>
+              </span>
+            </label>
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="banner" />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">详情页横幅</span>
+                <span class="asset-mode-spec">750×400，≤500KB</span>
+              </span>
+            </label>
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="cover" />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">表情封面</span>
+                <span class="asset-mode-spec">240×240 透明 PNG，≤500KB</span>
+              </span>
+            </label>
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="icon" />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">聊天页图标</span>
+                <span class="asset-mode-spec">50×50 透明 PNG，≤100KB</span>
+              </span>
+            </label>
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="rewardGuide" />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">赞赏引导图</span>
+                <span class="asset-mode-spec">750×560，≤500KB</span>
+              </span>
+            </label>
+            <label class="asset-mode-card">
+              <input type="radio" name="asset-mode" value="rewardThanks" />
+              <span class="asset-mode-body">
+                <span class="asset-mode-title">赞赏致谢图</span>
+                <span class="asset-mode-spec">750×750，≤500KB</span>
+              </span>
+            </label>
+          </div>
         </fieldset>
 
         <fieldset class="fieldset">

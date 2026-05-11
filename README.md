@@ -1,5 +1,7 @@
 # 表情包投放脚本
 
+**仓库：** [github.com/CCharlie-xiu/sticker-asset-tool](https://github.com/CCharlie-xiu/sticker-asset-tool)
+
 与同级目录 **《软著代码整理》** 保持**相同的顶层目录习惯**：`index.html`、`css/app.css`、`js/main.js`、`js/io/`、`js/rules/`、`js/pipeline/`、原生 **ES Modules**、无打包。
 
 ## 做什么
